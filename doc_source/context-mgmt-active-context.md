@@ -8,7 +8,7 @@ An *input context* specifies conditions under which an intent can be recognized\
 
 Amazon Lex automatically manages the lifecycle of contexts that are activated by fulfilling intents with output contexts\. You can also set active contexts in a call to the `RecognizeText` or `RecognizeUtterance` operation\.
 
-You can also set the context of a conversation using the Lambda function for the intent\. The output context from Amazon Lex is sent to the Lambda function input event\. The Lambda function can send contexts in its response\. For more information, see [Using a AWS Lambda function](lambda.md)\.
+You can also set the context of a conversation using the Lambda function for the intent\. The output context from Amazon Lex is sent to the Lambda function input event\. The Lambda function can send contexts in its response\. For more information, see [Using an AWS Lambda function](lambda.md)\.
 
 For example, suppose you have an intent to book a rental car that is configured to return an output context called "book\_car\_fulfilled"\. When the intent is fulfilled, Amazon Lex sets the output context variable "book\_car\_fulfilled"\. Since "book\_car\_fulfilled" is an active context, an intent with the "book\_car\_fulfilled" context set as an input context is now considered for recognition, as long as a user utterance is recognized as an attempt to elicit that intent\. You can use this for intents that only make sense after booking a car, such as emailing a receipt or modifying a reservation\.
 

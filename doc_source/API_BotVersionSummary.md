@@ -14,7 +14,7 @@ Required: No
  **botStatus**   <a name="lexv2-Type-BotVersionSummary-botStatus"></a>
 The status of the bot\. When the status is available, the version of the bot is ready for use\.  
 Type: String  
-Valid Values:` Creating | Available | Inactive | Deleting | Failed | Versioning`   
+Valid Values:` Creating | Available | Inactive | Deleting | Failed | Versioning | Importing`   
 Required: No
 
  **botVersion**   <a name="lexv2-Type-BotVersionSummary-botVersion"></a>
@@ -38,7 +38,7 @@ Required: No
 ## See Also<a name="API_BotVersionSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/BotVersionSummary) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/BotVersionSummary) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/BotVersionSummary) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/BotVersionSummary) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/BotVersionSummary) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/BotVersionSummary) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/BotVersionSummary) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/BotVersionSummary) 

@@ -1,8 +1,8 @@
 # Managing conversations<a name="using-conversations"></a>
 
-After you build a bot, you integrate your client application with the Amazon Lex runtime operations to hold conversations with your bot\.
+After you build a bot, you integrate your client application with the Amazon Lex V2 runtime operations to hold conversations with your bot\.
 
-When a user starts a conversation with your bot, Amazon Lex creates a *session*\. A session encapsulates the information exchanged between your application and the bot\. For more information, see [Managing sessions with the Amazon Lex API](using-sessions.md)\.
+When a user starts a conversation with your bot, Amazon Lex V2 creates a *session*\. A session encapsulates the information exchanged between your application and the bot\. For more information, see [Managing sessions with the Amazon Lex V2 API](using-sessions.md)\.
 
 A typical conversation involves a back and forth flow between the user and a bot\. For example:
 
@@ -19,7 +19,7 @@ User : Yes
 Bot : Thank you. Your appointment has been set successfully.
 ```
 
-When you use the [RecognizeText](API_runtime_RecognizeText.md) or [RecognizeUtterance](API_runtime_RecognizeUtterance.md) operation, you must manage the conversation in your client application\. When you use the [StartConversation](API_runtime_StartConversation.md) operation, Amazon Lex manages the conversation for you\.
+When you use the [RecognizeText](API_runtime_RecognizeText.md) or [RecognizeUtterance](API_runtime_RecognizeUtterance.md) operation, you must manage the conversation in your client application\. When you use the [StartConversation](API_runtime_StartConversation.md) operation, Amazon Lex V2 manages the conversation for you\.
 
 To manage the conversation, you must send user utterances to the bot until the conversation reaches a logical end\. The current conversation is captured in session state\. The session state is updated after each user utterance\. The session state contains the current state of the conversation and is returned by the bot in a response\. to each user utterance\. 
 

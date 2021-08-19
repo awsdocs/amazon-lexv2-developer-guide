@@ -1,6 +1,6 @@
 # Example: Creating a FAQ Bot for an Amazon Kendra Index<a name="faq-bot-kendra-search"></a>
 
-This example creates an Amazon Lex bot that uses an Amazon Kendra index to provide answers to users' questions\. The FAQ bot manages the dialog for the user\. It uses the `AMAZON.KendraSearchIntent` intent to query the index and to present the response to the user\. To create the bot, you: 
+This example creates an Amazon Lex V2 bot that uses an Amazon Kendra index to provide answers to users' questions\. The FAQ bot manages the dialog for the user\. It uses the `AMAZON.KendraSearchIntent` intent to query the index and to present the response to the user\. To create the bot, you: 
 
 1. Create a bot that your customers will interact with to get answers from your bot\.
 
@@ -30,7 +30,7 @@ Before you can use this example, you need to create an Amazon Kendra index\. For
 
 1. Choose **Create**\.
 
-To successfully build a bot, you must create at least one intent with at least one sample utterance\. This intent is required to build your Amazon Lex bot, but isn't used for the FAQ response\. The utterance for the intent must not apply to any of the questions that your customer asks\.
+To successfully build a bot, you must create at least one intent with at least one sample utterance\. This intent is required to build your Amazon Lex V2 bot, but isn't used for the FAQ response\. The utterance for the intent must not apply to any of the questions that your customer asks\.
 
 **To create the required intent**
 

@@ -4,7 +4,7 @@ You can use the console to manage tags on a bot or bot alias\. You can add tags 
 
 **To add a tag when you create a bot**
 
-1. Sign in to the AWS Management Console and open the Amazon Lex console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
+1. Sign in to the AWS Management Console and open the Amazon Lex V2 console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
 
 1. Choose **Create bot**\.
 
@@ -14,7 +14,7 @@ You can use the console to manage tags on a bot or bot alias\. You can add tags 
 
 **To add a tag when you create a bot alias**
 
-1. Sign in to the AWS Management Console and open the Amazon Lex console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
+1. Sign in to the AWS Management Console and open the Amazon Lex V2 console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
 
 1. Choose the bot that you want to add the bot alias to\.
 
@@ -26,7 +26,7 @@ You can use the console to manage tags on a bot or bot alias\. You can add tags 
 
 **To add, remove, or modify a tag on an existing bot**
 
-1. Sign in to the AWS Management Console and open the Amazon Lex console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
+1. Sign in to the AWS Management Console and open the Amazon Lex V2 console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
 
 1. Choose the bot that you want to modify\.
 
@@ -38,7 +38,7 @@ You can use the console to manage tags on a bot or bot alias\. You can add tags 
 
 **To add, remove, or modify a tag on an existing alias**
 
-1. Sign in to the AWS Management Console and open the Amazon Lex console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
+1. Sign in to the AWS Management Console and open the Amazon Lex V2 console at [https://console\.aws\.amazon\.com/lexv2/](https://console.aws.amazon.com/lexv2)\.
 
 1. Choose the bot that you want to modify\.
 

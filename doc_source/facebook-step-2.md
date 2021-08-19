@@ -22,12 +22,12 @@ On the Facebook developer portal, create a Facebook application and a Facebook p
 
 1. On the confirmation page, choose **OK**\.
 
-1. In the **Access Tokens** section, choose **Generate Token**, then copy the token\. You enter this token in the Amazon Lex console\.
+1. In the **Access Tokens** section, choose **Generate Token**, then copy the token\. You enter this token in the Amazon Lex V2 console\.
 
 1. From the left menu, choose ** Settings ** and then choose **Basic**\.
 
-1. For **App Secret**, choose **Show** and then copy the secret\. You enter this token in the Amazon Lex console\.
+1. For **App Secret**, choose **Show** and then copy the secret\. You enter this token in the Amazon Lex V2 console\.
 
 ## Next step<a name="step-2-next"></a>
 
-[Step 3: Integrate Facebook Messenger with the Amazon Lex bot](facebook-step-3.md)
+[Step 3: Integrate Facebook Messenger with the Amazon Lex V2 bot](facebook-step-3.md)

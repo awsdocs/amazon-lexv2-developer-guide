@@ -1,6 +1,6 @@
 # Step 4: Complete Facebook integration<a name="facebook-step-4"></a>
 
-In this step, use the Facebook developer console to complete integration with Amazon Lex\. 
+In this step, use the Facebook developer console to complete integration with Amazon Lex V2\. 
 
 **To complete Facebook Messenger integration**
 
@@ -13,8 +13,8 @@ In this step, use the Facebook developer console to complete integration with Am
 1. In the **Webhooks** section, choose **Add Callback URL**\.
 
 1. In **Edit Callback URL**, enter the following:
-   + **Callback URL** – Enter the callback URL that you recorded from the Amazon Lex console\.
-   + **Verify Token** – Enter the alias that you entered in the Amazon Lex console\.
+   + **Callback URL** – Enter the callback URL that you recorded from the Amazon Lex V2 console\.
+   + **Verify Token** – Enter the alias that you entered in the Amazon Lex V2 console\.
 
 1. Choose **Verify and Save**\.
 

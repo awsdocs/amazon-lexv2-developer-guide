@@ -1,10 +1,10 @@
 # Exercise 1: Create a bot from an example<a name="exercise-1"></a>
 
-In this exercise, you create your first Amazon Lex bot and test it in the Amazon Lex console\. For this exercise, you use the **OrderFlowers** example\.
+In this exercise, you create your first Amazon Lex V2 bot and test it in the Amazon Lex V2 console\. For this exercise, you use the **OrderFlowers** example\.
 
 ## Example overview<a name="example-overview"></a>
 
-You use the **OrderFlowers** example to create an Amazon Lex bot\. For more information about the structure of a bot, see [How it works](how-it-works.md)\.
+You use the **OrderFlowers** example to create an Amazon Lex V2 bot\. For more information about the structure of a bot, see [How it works](how-it-works.md)\.
 + **Intent** – OrderFlowers
 + **Slot types** – One custom slot type called `FlowerTypes` with enumeration values: `roses`, `lilies`, and `tulips`\.
 + **Slots** – The intent requires the following information \(that is, slots\) before the bot can fulfill the intent\.
@@ -20,9 +20,9 @@ You use the **OrderFlowers** example to create an Amazon Lex bot\. For more info
   + Prompt for the `PickupTime` slot – "At what time do you want the \{FlowerType\} to be picked up?"
   + Confirmation statement – "Okay, your \{FlowerType\} will be ready for pickup by \{PickupTime\} on \{PickupDate\}\. Does this sound okay?" 
 
-**To create an Amazon Lex bot \(Console\)**
+**To create an Amazon Lex V2 bot \(Console\)**
 
-1. Sign in to the AWS Management Console and open the Amazon Lex console at [ https://console\.aws\.amazon\.com/lexv2/ ](https://console.aws.amazon.com/https://console.aws.amazon.com/lexv2/)
+1. Sign in to the AWS Management Console and open the Amazon Lex V2 console at [ https://console\.aws\.amazon\.com/lexv2/home ](https://console.aws.amazon.com/lexv2/home)
 
 1. Choose **Create bot**\.
 
@@ -32,13 +32,13 @@ You use the **OrderFlowers** example to create an Amazon Lex bot\. For more info
 
 1. In the **Bot configuration** section give the bot a name and a description\. The name must be unique in your account\.
 
-1. In the **Permissions** section, choose **Create a new role with basic Amazon Lex permissions**\. This will create an AWS Identity and Access Management \(IAM\) role with the permissions that Amazon Lex needs to run your bot\.
+1. In the **Permissions** section, choose **Create a new role with basic Amazon Lex permissions**\. This will create an AWS Identity and Access Management \(IAM\) role with the permissions that Amazon Lex V2 needs to run your bot\.
 
 1. In the **Children's Online Privacy Protection Act \(COPPA\)** section, make the appropriate choice\.
 
 1. In the **Session timeout** and **Advanced settings** sections, leave the defaults\.
 
-1. Choose **Next**\. Amazon Lex creates your bot\.
+1. Choose **Next**\. Amazon Lex V2 creates your bot\.
 
 After you create your bot, you must add one or more languages that the bot supports\. A language contains the intents, slot types, and slots that the bot uses to converse with users\.
 

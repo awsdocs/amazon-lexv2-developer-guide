@@ -7,7 +7,7 @@ Summary information about bot locales returned by the [ListBotLocales](API_ListB
  **botLocaleStatus**   <a name="lexv2-Type-BotLocaleSummary-botLocaleStatus"></a>
 The current status of the bot locale\. When the status is `Built` the locale is ready for use\.  
 Type: String  
-Valid Values:` Creating | Building | Built | ReadyExpressTesting | Failed | Deleting | NotBuilt`   
+Valid Values:` Creating | Building | Built | ReadyExpressTesting | Failed | Deleting | NotBuilt | Importing`   
 Required: No
 
  **description**   <a name="lexv2-Type-BotLocaleSummary-description"></a>
@@ -39,7 +39,7 @@ Required: No
 ## See Also<a name="API_BotLocaleSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/BotLocaleSummary) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/BotLocaleSummary) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/BotLocaleSummary) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/BotLocaleSummary) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/BotLocaleSummary) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/BotLocaleSummary) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/BotLocaleSummary) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/BotLocaleSummary) 

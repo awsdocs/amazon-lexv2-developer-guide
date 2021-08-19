@@ -1,6 +1,6 @@
 # PutSession<a name="API_runtime_PutSession"></a>
 
-Creates a new session or modifies an existing session with an Amazon Lex bot\. Use this operation to enable your application to set the state of the bot\.
+Creates a new session or modifies an existing session with an Amazon Lex V2 bot\. Use this operation to enable your application to set the state of the bot\.
 
 ## Request Syntax<a name="API_runtime_PutSession_RequestSyntax"></a>
 
@@ -52,11 +52,15 @@ Content-type: application/json
          "name": "string",
          "slots": { 
             "string" : { 
+               "shape": "string",
                "value": { 
                   "interpretedValue": "string",
                   "originalValue": "string",
                   "resolvedValues": [ "string" ]
-               }
+               },
+               "values": [ 
+                  "Slot"
+               ]
             }
          },
          "state": "string"
@@ -89,8 +93,8 @@ Length Constraints: Minimum length of 1\.
 Required: Yes
 
  ** [responseContentType](#API_runtime_PutSession_RequestSyntax) **   <a name="lexv2-runtime_PutSession-request-responseContentType"></a>
-The message that Amazon Lex returns in the response can be either text or speech depending on the value of this parameter\.   
-+ If the value is `text/plain; charset=utf-8`, Amazon Lex returns text in the response\.
+The message that Amazon Lex V2 returns in the response can be either text or speech depending on the value of this parameter\.   
++ If the value is `text/plain; charset=utf-8`, Amazon Lex V2 returns text in the response\.
 Length Constraints: Minimum length of 1\.
 
  ** [sessionId](#API_runtime_PutSession_RequestSyntax) **   <a name="lexv2-runtime_PutSession-request-sessionId"></a>
@@ -110,14 +114,14 @@ Array Members: Maximum number of 10 items\.
 Required: No
 
  ** [requestAttributes](#API_runtime_PutSession_RequestSyntax) **   <a name="lexv2-runtime_PutSession-request-requestAttributes"></a>
-Request\-specific information passed between Amazon Lex and the client application\.  
+Request\-specific information passed between Amazon Lex V2 and the client application\.  
 The namespace `x-amz-lex:` is reserved for special attributes\. Don't create any request attributes with the prefix `x-amz-lex:`\.  
 Type: String to string map  
 Key Length Constraints: Minimum length of 1\.  
 Required: No
 
  ** [sessionState](#API_runtime_PutSession_RequestSyntax) **   <a name="lexv2-runtime_PutSession-request-sessionState"></a>
-Sets the state of the session with the user\. You can use this to set the current intent, attributes, context, and dialog action\. Use the dialog action to determine the next step that Amazon Lex should use in the conversation with the user\.  
+Sets the state of the session with the user\. You can use this to set the current intent, attributes, context, and dialog action\. Use the dialog action to determine the next step that Amazon Lex V2 should use in the conversation with the user\.  
 Type: [SessionState](API_runtime_SessionState.md) object  
 Required: Yes
 
@@ -149,7 +153,7 @@ A list of messages that were last sent to the user\. The messages are ordered ba
 Length Constraints: Minimum length of 1\.
 
  ** [requestAttributes](#API_runtime_PutSession_ResponseSyntax) **   <a name="lexv2-runtime_PutSession-response-requestAttributes"></a>
-Request\-specific information passed between the client application and Amazon Lex\. These are the same as the `requestAttribute` parameter in the call to the `PutSession` operation\.  
+Request\-specific information passed between the client application and Amazon Lex V2\. These are the same as the `requestAttribute` parameter in the call to the `PutSession` operation\.  
 Length Constraints: Minimum length of 1\.
 
  ** [sessionId](#API_runtime_PutSession_ResponseSyntax) **   <a name="lexv2-runtime_PutSession-response-sessionId"></a>
@@ -206,12 +210,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_runtime_PutSession_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/runtime.lex.v2-2020-08-07/PutSession) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/runtime.lex.v2-2020-08-07/PutSession) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/PutSession) 

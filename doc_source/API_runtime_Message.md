@@ -14,7 +14,7 @@ Required: No
 Indicates the type of response\.  
 Type: String  
 Valid Values:` CustomPayload | ImageResponseCard | PlainText | SSML`   
-Required: No
+Required: Yes
 
  **imageResponseCard**   <a name="lexv2-Type-runtime_Message-imageResponseCard"></a>
 A card that is shown to the user by a messaging platform\. You define the contents of the card, the card is displayed by the platform\.   
@@ -25,7 +25,7 @@ Required: No
 ## See Also<a name="API_runtime_Message_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/Message) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/Message) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/Message) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/Message) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/Message) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/Message) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/Message) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/Message) 

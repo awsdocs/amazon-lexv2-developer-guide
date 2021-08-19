@@ -1,6 +1,6 @@
 # Step 1: Set Up an AWS Account and Create an Administrator User<a name="gs-account"></a>
 
-Before you use Amazon Lex for the first time, complete the following tasks: 
+Before you use Amazon Lex V2 for the first time, complete the following tasks: 
 
 1. [Sign Up for AWS](#gs-account-create)
 
@@ -10,9 +10,9 @@ Before you use Amazon Lex for the first time, complete the following tasks:
 
 If you already have an AWS account, skip this task\.
 
-When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all services in AWS, including Amazon Lex\. You are charged only for the services that you use\.
+When you sign up for Amazon Web Services \(AWS\), your AWS account is automatically signed up for all services in AWS, including Amazon Lex V2\. You are charged only for the services that you use\.
 
-With Amazon Lex, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Lex for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/)\.
+With Amazon Lex V2, you pay only for the resources that you use\. If you are a new AWS customer, you can get started with Amazon Lex V2 for free\. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/)\.
 
 If you already have an AWS account, skip to the next task\. If you don't have an AWS account, use the following procedure to create one\.
 
@@ -28,7 +28,7 @@ Write down your AWS account ID because you'll need it for the next task\.
 
 ## Create an IAM User<a name="gs-account-user"></a>
 
-Services in AWS, such as Amazon Lex, require that you provide credentials when you access them so that the service can determine whether you have permissions to access the resources owned by that service\. The console requires your password\. You can create access keys for your AWS account to access the AWS CLI or API\.
+Services in AWS, such as Amazon Lex V2, require that you provide credentials when you access them so that the service can determine whether you have permissions to access the resources owned by that service\. The console requires your password\. You can create access keys for your AWS account to access the AWS CLI or API\.
 
 However, we don't recommend that you access AWS using the credentials for your AWS account\. Instead, we recommend that you:
 + Use AWS Identity and Access Management \(IAM\) to create an IAM user

@@ -1,18 +1,18 @@
-# How Amazon Lex works with IAM<a name="security_iam_service-with-iam"></a>
+# How Amazon Lex V2 works with IAM<a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to Amazon Lex, learn what IAM features are available to use with Amazon Lex\.
-
-
+Before you use IAM to manage access to Amazon Lex V2, learn what IAM features are available to use with Amazon Lex V2\.
 
 
 
 
-**IAM features you can use with Amazon Lex**  
 
-| IAM feature | Amazon Lex support | 
+
+**IAM features you can use with Amazon Lex V2**  
+
+| IAM feature | Amazon Lex V2 support | 
 | --- | --- | 
 |  [Identity\-based policies](#security_iam_service-with-iam-id-based-policies)  |  Yes  | 
-|  [Resource\-based policies](#security_iam_service-with-iam-resource-based-policies)  |  No   | 
+|  [Resource\-based policies](#security_iam_service-with-iam-resource-based-policies)  |  Yes  | 
 |  [Policy actions](#security_iam_service-with-iam-id-based-policies-actions)  |  Yes  | 
 |  [Policy resources](#security_iam_service-with-iam-id-based-policies-resources)  |  Yes  | 
 |  [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys)  |  No   | 
@@ -23,9 +23,9 @@ Before you use IAM to manage access to Amazon Lex, learn what IAM features are a
 |  [Service roles](#security_iam_service-with-iam-roles-service)  |  Yes  | 
 |  [Service\-linked roles](#security_iam_service-with-iam-roles-service-linked)  |  Partial  | 
 
-To get a high\-level view of how Amazon Lex and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*\.
+To get a high\-level view of how Amazon Lex V2 and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*\.
 
-## Identity\-based policies for Amazon Lex<a name="security_iam_service-with-iam-id-based-policies"></a>
+## Identity\-based policies for Amazon Lex V2<a name="security_iam_service-with-iam-id-based-policies"></a>
 
 
 |  |  | 
@@ -36,24 +36,104 @@ Identity\-based policies are JSON permissions policy documents that you can atta
 
 With IAM identity\-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied\. You can't specify the principal in an identity\-based policy because it applies to the user or role to which it is attached\. To learn about all of the elements that you can use in a JSON policy, see [IAM JSON policy elements reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*\.
 
-### Identity\-based policy examples for Amazon Lex<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
+### Identity\-based policy examples for Amazon Lex V2<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
 
 
-To view examples of Amazon Lex identity\-based policies, see [Identity\-based policy examples for Amazon Lex](security_iam_id-based-policy-examples.md)\.
+To view examples of Amazon Lex V2 identity\-based policies, see [Identity\-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md)\.
 
-## Resource\-based policies within Amazon Lex<a name="security_iam_service-with-iam-resource-based-policies"></a>
+## Resource\-based policies within Amazon Lex V2<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
 
 |  |  | 
 | --- |--- |
-|  Supports resource\-based policies  |  No   | 
+|  Supports resource\-based policies  |  Yes  | 
 
-Resource\-based policies are JSON policy documents that you attach to a resource\. Examples of resource\-based policies are IAM *role trust policies* and Amazon S3 *bucket policies*\. In services that support resource\-based policies, service administrators can use them to control access to a specific resource\. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions\. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource\-based policy\. Principals can include accounts, users, roles, federated users, or AWS services\.
+Resource\-based policies are JSON policy documents that you attach to a resource\. Examples of resource\-based policies are IAM role trust policies and Amazon S3 bucket policies\. In services that support resource\-based policies, service administrators can use them to control access to a specific resource\. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions\. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource\-based policy\. Principals can include users, roles, federated users, or AWS services\.
 
-To enable cross\-account access, you can specify an entire account or IAM entities in another account as the principal in a resource\-based policy\. Adding a cross\-account principal to a resource\-based policy is only half of establishing the trust relationship\. When the principal and the resource are in different AWS accounts, an IAM administrator in the trusted account must also grant the principal entity \(user or role\) permission to access the resource\. They grant permission by attaching an identity\-based policy to the entity\. However, if a resource\-based policy grants access to a principal in the same account, no additional identity\-based policy is required\. For more information, see [How IAM roles differ from resource\-based policies ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html)in the *IAM User Guide*\.
+You can't use cross\-account or cross\-region policies with Amazon Lex\. If you create a policy for a resource with a cross\-account or cross\-region ARN, Amazon Lex returns an error\.
 
-## Policy actions for Amazon Lex<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
+The Amazon Lex service supports resource\-based policies called a *bot policy* and a *bot alias* policy, which are attached to a bot or a bot alias\. These policies define which principals can perform actions on the bot or bot alias\. 
+
+Actions can only be used on specific resources\. For example, the `UpdateBot` action can only be used on bot resources, the `UpdateBotAlias` action can only be used on bot alias resources\. If you specify an action in a policy that can't be used on the resource specified in the policy, Amazon Lex returns an error\. For the list of actions and the resources that they can be used with, see the following table\.
+
+
+| Action | Supports resource\-based policy | Resource | 
+| --- | --- | --- | 
+| BuildBotLocale | Supported | BotId | 
+| CreateBot | No |   | 
+| CreateBotAlias | No |   | 
+| CreateBotChannel \[permission only\] | Supported | BotId | 
+| CreateBotLocale | Supported | BotId | 
+| CreateBotVersion | Supported | BotId | 
+| CreateExport | Supported | BotId | 
+| CreateIntent | Supported | BotId | 
+| CreateResourcePolicy | Supported | BotId, BotAliasId | 
+| CreateSlot | Supported | BotId | 
+| CreateSlotType | Supported | BotId | 
+| CreateUploadUrl | No |   | 
+| DeleteBot | Supported | BotId, BotAliasId | 
+| DeleteBotAlias | Supported | BotAliasId | 
+| DeleteBotChannel \[permission only\] | Supported | BotId | 
+| DeleteBotLocale | Supported | BotId | 
+| DeleteBotVersion | Supported | BotId | 
+| DeleteExport | Supported | BotId | 
+| DeleteImport | Supported | BotId | 
+| DeleteIntent | Supported | BotId | 
+| DeleteResourcePolicy | Supported | BotId, BotAliasId | 
+| DeleteSession | Supported | BotAliasId | 
+| DeleteSlot | Supported | BotId | 
+| DeleteSlotType | Supported | BotId | 
+| DescribeBot | Supported | BotId | 
+| DescribeBotAlias | Supported | BotAliasId | 
+| DescribeBotChannel \[permission only\] | Supported | BotId | 
+| DescribeBotLocale | Supported | BotId | 
+| DescribeBotVersion | Supported | BotId | 
+| DescribeExport | Supported | BotId | 
+| DescribeImport | Supported | BotId | 
+| DescribeIntent | Supported | BotId | 
+| DescribeResourcePolicy | Supported | BotId, BotAliasId | 
+| DescribeSlot | Supported | BotId | 
+| DescribeSlotType | Supported | BotId | 
+| GetSession | Supported | BotAliasId | 
+| ListBotAliases | Supported | BotAliasId | 
+| ListBotChannels \[permission only\] | Supported | BotId | 
+| ListBotLocales | Supported | BotId | 
+| ListBots | No |   | 
+| ListBotVersions | Supported | BotId | 
+| ListBuiltInIntents | No |   | 
+| ListBuiltIntSlotTypes | No |   | 
+| ListExports | No |   | 
+| ListImports | No |   | 
+| ListIntents | Supported | BotId | 
+| ListSlots | Supported | BotId | 
+| ListSlotTypes | Supported | BotId | 
+| PutSession | Supported | BotAliasId | 
+| RecognizeText | Supported | BotAliasId | 
+| RecognizeUtterance | Supported | BotAliasId | 
+| StartConversation | Supported | BotAliasId | 
+| StartImport | Supported | BotId, BotAliasId | 
+| TagResource | No |   | 
+| UpdateBot | Supported | BotId | 
+| UpdateBotAlias | Supported | BotAliasId | 
+| UpdateBotLocale | Supported | BotId | 
+| UpdateBotVersion | Supported | BotId | 
+| UpdateExport | Supported | BotId | 
+| UpdateIntent | Supported | BotId | 
+| UpdateResourcePolicy | Supported | BotId, BotAliasId | 
+| UpdateSlot | Supported | BotId | 
+| UpdateSlotType | Supported | BotId | 
+| UntagResource | No |   | 
+
+To learn how to attach a resource\-based policy to a bot or bot alias, see [Resource\-based policy examples for Amazon Lex V2](security_iam_resource-based-policy-examples.md)\.
+
+### Resource\-based policy examples within Amazon Lex V2<a name="security_iam_service-with-iam-resource-based-policies-examples"></a>
+
+
+
+To view examples of Amazon Lex V2 resource\-based policies, see [Resource\-based policy examples for Amazon Lex V2](security_iam_resource-based-policy-examples.md)\.
+
+## Policy actions for Amazon Lex V2<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
 
 |  |  | 
@@ -68,9 +148,9 @@ Include actions in a policy to grant permissions to perform the associated opera
 
 
 
-To see a list of Amazon Lex actions, see [Actions defined by Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-actions-as-permissions) in the *Service Authorization Reference*\.
+To see a list of Amazon Lex V2 actions, see [Actions defined by Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-actions-as-permissions) in the *Service Authorization Reference*\.
 
-Policy actions in Amazon Lex use the following prefix before the action:
+Policy actions in Amazon Lex V2 use the following prefix before the action:
 
 ```
 lex
@@ -89,9 +169,9 @@ To specify multiple actions in a single statement, separate them with commas\.
 
 
 
-To view examples of Amazon Lex identity\-based policies, see [Identity\-based policy examples for Amazon Lex](security_iam_id-based-policy-examples.md)\.
+To view examples of Amazon Lex V2 identity\-based policies, see [Identity\-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md)\.
 
-## Policy resources for Amazon Lex<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
+## Policy resources for Amazon Lex V2<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
 
 |  |  | 
@@ -108,15 +188,15 @@ For actions that don't support resource\-level permissions, such as listing oper
 "Resource": "*"
 ```
 
-To see a list of Amazon Lex resource types and their ARNs, see [Resources defined by Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-resources-for-iam-policies) in the *Service Authorization Reference*\. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-actions-as-permissions)\.
+To see a list of Amazon Lex V2 resource types and their ARNs, see [Resources defined by Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-resources-for-iam-policies) in the *Service Authorization Reference*\. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-actions-as-permissions)\.
 
 
 
 
 
-To view examples of Amazon Lex identity\-based policies, see [Identity\-based policy examples for Amazon Lex](security_iam_id-based-policy-examples.md)\.
+To view examples of Amazon Lex V2 identity\-based policies, see [Identity\-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md)\.
 
-## Policy condition keys for Amazon Lex<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
+## Policy condition keys for Amazon Lex V2<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
 
 |  |  | 
@@ -133,11 +213,11 @@ If you specify multiple `Condition` elements in a statement, or multiple keys in
 
 AWS supports global condition keys and service\-specific condition keys\. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
-To see a list of Amazon Lex condition keys, see [Condition keys for Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-policy-keys) in the *Service Authorization Reference*\. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-actions-as-permissions)\.
+To see a list of Amazon Lex V2 condition keys, see [Condition keys for Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-policy-keys) in the *Service Authorization Reference*\. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html#awskeymanagementservice-actions-as-permissions)\.
 
-To view examples of Amazon Lex identity\-based policies, see [Identity\-based policy examples for Amazon Lex](security_iam_id-based-policy-examples.md)\.
+To view examples of Amazon Lex V2 identity\-based policies, see [Identity\-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md)\.
 
-## Access control lists \(ACLs\) in Amazon Lex<a name="security_iam_service-with-iam-acls"></a>
+## Access control lists \(ACLs\) in Amazon Lex V2<a name="security_iam_service-with-iam-acls"></a>
 
 
 |  |  | 
@@ -146,7 +226,7 @@ To view examples of Amazon Lex identity\-based policies, see [Identity\-based po
 
 Access control lists \(ACLs\) control which principals \(account members, users, or roles\) have permissions to access a resource\. ACLs are similar to resource\-based policies, although they do not use the JSON policy document format\.
 
-## Attribute\-based access control \(ABAC\) with Amazon Lex<a name="security_iam_service-with-iam-tags"></a>
+## Attribute\-based access control \(ABAC\) with Amazon Lex V2<a name="security_iam_service-with-iam-tags"></a>
 
 
 |  |  | 
@@ -161,7 +241,7 @@ To control access based on tags, you provide tag information in the [condition e
 
 For more information about ABAC, see [What is ABAC?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*\. To view a tutorial with steps for setting up ABAC, see [Use attribute\-based access control \(ABAC\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*\.
 
-## Using Temporary credentials with Amazon Lex<a name="security_iam_service-with-iam-roles-tempcreds"></a>
+## Using Temporary credentials with Amazon Lex V2<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
 
 |  |  | 
@@ -174,16 +254,16 @@ You are using temporary credentials if you sign in to the AWS Management Console
 
 You can manually create temporary credentials using the AWS CLI or AWS API\. You can then use those temporary credentials to access AWS\. AWS recommends that you dynamically generate temporary credentials instead of using long\-term access keys\. For more information, see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)\.
 
-## Cross\-service principal permissions for Amazon Lex<a name="security_iam_service-with-iam-principal-permissions"></a>
+## Cross\-service principal permissions for Amazon Lex V2<a name="security_iam_service-with-iam-principal-permissions"></a>
 
 
 |  |  | 
 | --- |--- |
 |  Supports principal permissions  |  Yes  | 
 
-  When you use an IAM user or role to perform actions in AWS, you are considered a principal\. Policies grant permissions to a principal\. When you use some services, you might perform an action that then triggers another action in a different service\. In this case, you must have permissions to perform both actions\. To see whether an action requires additional dependent actions in a policy, see [Actions, resources, and condition keys for Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html) in the *Service Authorization Reference*\. 
+  When you use an IAM user or role to perform actions in AWS, you are considered a principal\. Policies grant permissions to a principal\. When you use some services, you might perform an action that then triggers another action in a different service\. In this case, you must have permissions to perform both actions\. To see whether an action requires additional dependent actions in a policy, see [Actions, resources, and condition keys for Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html) in the *Service Authorization Reference*\. 
 
-## Service roles for Amazon Lex<a name="security_iam_service-with-iam-roles-service"></a>
+## Service roles for Amazon Lex V2<a name="security_iam_service-with-iam-roles-service"></a>
 
 
 |  |  | 
@@ -193,9 +273,9 @@ You can manually create temporary credentials using the AWS CLI or AWS API\. You
   A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf\. Service roles provide access only within your account and cannot be used to grant access to services in other accounts\. An IAM administrator can create, modify, and delete a service role from within IAM\. For more information, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. 
 
 **Warning**  
-Changing the permissions for a service role might break Amazon Lex functionality\. Edit service roles only when Amazon Lex provides guidance to do so\.
+Changing the permissions for a service role might break Amazon Lex V2 functionality\. Edit service roles only when Amazon Lex V2 provides guidance to do so\.
 
-## Service\-linked roles for Amazon Lex<a name="security_iam_service-with-iam-roles-service-linked"></a>
+## Service\-linked roles for Amazon Lex V2<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
 
 |  |  | 

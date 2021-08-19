@@ -31,7 +31,7 @@ Pattern: `^[0-9a-zA-Z]+$`
 Required: Yes
 
  ** [localeId](#API_DescribeSlot_RequestSyntax) **   <a name="lexv2-DescribeSlot-request-localeId"></a>
-The identifier of the language and locale of the slot to describe\. The string must match one of the supported locales\. For more information, see [https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html](https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html)\.  
+The identifier of the language and locale of the slot to describe\. The string must match one of the supported locales\. For more information, see [Supported languages](https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)\.  
 Required: Yes
 
  ** [slotId](#API_DescribeSlot_RequestSyntax) **   <a name="lexv2-DescribeSlot-request-slotId"></a>
@@ -58,6 +58,9 @@ Content-type: application/json
    "intentId": "string",
    "lastUpdatedDateTime": number,
    "localeId": "string",
+   "multipleValuesSetting": { 
+      "allowMultipleValues": boolean
+   },
    "obfuscationSetting": { 
       "obfuscationSettingType": "string"
    },
@@ -133,6 +136,7 @@ Content-type: application/json
       ],
       "slotConstraint": "string",
       "waitAndContinueSpecification": { 
+         "active": boolean,
          "continueResponse": { 
             "allowInterrupt": boolean,
             "messageGroups": [ 
@@ -340,6 +344,11 @@ Type: Timestamp
 The language and locale specified for the slot\.  
 Type: String
 
+ ** [multipleValuesSetting](#API_DescribeSlot_ResponseSyntax) **   <a name="lexv2-DescribeSlot-response-multipleValuesSetting"></a>
+Indicates whether the slot accepts multiple values in a single utterance\.  
+If the `multipleValuesSetting` is not set, the default value is `false`\.  
+Type: [MultipleValuesSetting](API_MultipleValuesSetting.md) object
+
  ** [obfuscationSetting](#API_DescribeSlot_ResponseSyntax) **   <a name="lexv2-DescribeSlot-response-obfuscationSetting"></a>
 Whether slot values are shown in Amazon CloudWatch logs\. If the value is `None`, the actual value of the slot is shown in logs\.  
 Type: [ObfuscationSetting](API_ObfuscationSetting.md) object
@@ -393,12 +402,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DescribeSlot_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/models.lex.v2-2020-08-07/DescribeSlot) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/models.lex.v2-2020-08-07/DescribeSlot) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/DescribeSlot) 

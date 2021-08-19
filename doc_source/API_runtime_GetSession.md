@@ -4,7 +4,7 @@ Returns session information for a specified bot, alias, and user\.
 
 For example, you can use this operation to retrieve session information for a user that has left a long\-running session in use\.
 
-If the bot, alias, or session identifier doesn't exist, Amazon Lex returns a `BadRequestException`\. If the locale doesn't exist or is not enabled for the alias, you receive a `BadRequestException`\.
+If the bot, alias, or session identifier doesn't exist, Amazon Lex V2 returns a `BadRequestException`\. If the locale doesn't exist or is not enabled for the alias, you receive a `BadRequestException`\.
 
 ## Request Syntax<a name="API_runtime_GetSession_RequestSyntax"></a>
 
@@ -55,11 +55,15 @@ Content-type: application/json
             "name": "string",
             "slots": { 
                "string" : { 
+                  "shape": "string",
                   "value": { 
                      "interpretedValue": "string",
                      "originalValue": "string",
                      "resolvedValues": [ "string" ]
-                  }
+                  },
+                  "values": [ 
+                     "Slot"
+                  ]
                }
             },
             "state": "string"
@@ -118,11 +122,15 @@ Content-type: application/json
          "name": "string",
          "slots": { 
             "string" : { 
+               "shape": "string",
                "value": { 
                   "interpretedValue": "string",
                   "originalValue": "string",
                   "resolvedValues": [ "string" ]
-               }
+               },
+               "values": [ 
+                  "Slot"
+               ]
             }
          },
          "state": "string"
@@ -142,8 +150,8 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [interpretations](#API_runtime_GetSession_ResponseSyntax) **   <a name="lexv2-runtime_GetSession-response-interpretations"></a>
-A list of intents that Amazon Lex determined might satisfy the user's utterance\.   
-Each interpretation includes the intent, a score that indicates how confident Amazon Lex is that the interpretation is the correct one, and an optional sentiment response that indicates the sentiment expressed in the utterance\.  
+A list of intents that Amazon Lex V2 determined might satisfy the user's utterance\.   
+Each interpretation includes the intent, a score that indicates how confident Amazon Lex V2 is that the interpretation is the correct one, and an optional sentiment response that indicates the sentiment expressed in the utterance\.  
 Type: Array of [Interpretation](API_runtime_Interpretation.md) objects  
 Array Members: Maximum number of 5 items\.
 
@@ -189,12 +197,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_runtime_GetSession_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/runtime.lex.v2-2020-08-07/GetSession) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/runtime.lex.v2-2020-08-07/GetSession) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/GetSession) 

@@ -1,6 +1,19 @@
 # RecognizeUtterance<a name="API_runtime_RecognizeUtterance"></a>
 
-Sends user input to Amazon Lex\. You can send text or speech\. Clients use this API to send text and audio requests to Amazon Lex at runtime\. Amazon Lex interprets the user input using the machine learning model built for the bot\.
+Sends user input to Amazon Lex V2\. You can send text or speech\. Clients use this API to send text and audio requests to Amazon Lex V2 at runtime\. Amazon Lex V2 interprets the user input using the machine learning model built for the bot\.
+
+The following request fields must be compressed with gzip and then base64 encoded before you send them to Amazon Lex V2\. 
++ requestAttributes
++ sessionState
+
+The following response fields are compressed using gzip and then base64 encoded by Amazon Lex V2\. Before you can use these fields, you must decode and decompress them\. 
++ inputTranscript
++ interpretations
++ messages
++ requestAttributes
++ sessionState
+
+The example contains a Java application that compresses and encodes a Java object to send to Amazon Lex V2, and a second that decodes and decompresses a response from Amazon Lex V2\.
 
 ## Request Syntax<a name="API_runtime_RecognizeUtterance_RequestSyntax"></a>
 
@@ -34,8 +47,9 @@ Length Constraints: Minimum length of 1\.
 Required: Yes
 
  ** [requestAttributes](#API_runtime_RecognizeUtterance_RequestSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-request-requestAttributes"></a>
-Request\-specific information passed between the client application and Amazon Lex   
-The namespace `x-amz-lex:` is reserved for special attributes\. Don't create any request attributes for prefix `x-amz-lex:`\.
+Request\-specific information passed between the client application and Amazon Lex V2   
+The namespace `x-amz-lex:` is reserved for special attributes\. Don't create any request attributes for prefix `x-amz-lex:`\.  
+The `requestAttributes` field must be compressed using gzip and then base64 encoded before sending to Amazon Lex V2\.
 
  ** [requestContentType](#API_runtime_RecognizeUtterance_RequestSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-request-requestContentType"></a>
 Indicates the format for audio input or that the content is text\. The header must start with one of the following prefixes:  
@@ -51,9 +65,9 @@ Length Constraints: Minimum length of 1\.
 Required: Yes
 
  ** [responseContentType](#API_runtime_RecognizeUtterance_RequestSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-request-responseContentType"></a>
-The message that Amazon Lex returns in the response can be either text or speech based on the `responseContentType` value\.  
-+ If the value is `text/plain;charset=utf-8`, Amazon Lex returns text in the response\.
-+ If the value begins with `audio/`, Amazon Lex returns speech in the response\. Amazon Lex uses Amazon Polly to generate the speech using the configuration that you specified in the `requestContentType` parameter\. For example, if you specify `audio/mpeg` as the value, Amazon Lex returns speech in the MPEG format\.
+The message that Amazon Lex V2 returns in the response can be either text or speech based on the `responseContentType` value\.  
++ If the value is `text/plain;charset=utf-8`, Amazon Lex V2 returns text in the response\.
++ If the value begins with `audio/`, Amazon Lex V2 returns speech in the response\. Amazon Lex V2 uses Amazon Polly to generate the speech using the configuration that you specified in the `requestContentType` parameter\. For example, if you specify `audio/mpeg` as the value, Amazon Lex V2 returns speech in the MPEG format\.
 + If the value is `audio/pcm`, the speech returned is `audio/pcm` at 16 KHz in 16\-bit, little\-endian format\.
 + The following are the accepted values:
   + audio/mpeg
@@ -70,7 +84,8 @@ Pattern: `[0-9a-zA-Z._:-]+`
 Required: Yes
 
  ** [sessionState](#API_runtime_RecognizeUtterance_RequestSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-request-sessionState"></a>
-Sets the state of the session with the user\. You can use this to set the current intent, attributes, context, and dialog action\. Use the dialog action to determine the next step that Amazon Lex should use in the conversation with the user\.
+Sets the state of the session with the user\. You can use this to set the current intent, attributes, context, and dialog action\. Use the dialog action to determine the next step that Amazon Lex V2 should use in the conversation with the user\.  
+The `sessionState` field must be compressed using gzip and then base64 encoded before sending to Amazon Lex V2\.
 
 ## Request Body<a name="API_runtime_RecognizeUtterance_RequestBody"></a>
 
@@ -111,20 +126,24 @@ Length Constraints: Minimum length of 1\.
 
  ** [inputTranscript](#API_runtime_RecognizeUtterance_ResponseSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-response-inputTranscript"></a>
 The text used to process the request\.  
-If the input was an audio stream, the `inputTranscript` field contains the text extracted from the audio stream\. This is the text that is actually processed to recognize intents and slot values\. You can use this information to determine if Amazon Lex is correctly processing the audio that you send\.  
+If the input was an audio stream, the `inputTranscript` field contains the text extracted from the audio stream\. This is the text that is actually processed to recognize intents and slot values\. You can use this information to determine if Amazon Lex V2 is correctly processing the audio that you send\.  
+The `inputTranscript` field is compressed with gzip and then base64 encoded\. Before you can use the contents of the field, you must decode and decompress the contents\. See the example for a simple function to decode and decompress the contents\.  
 Length Constraints: Minimum length of 1\.
 
  ** [interpretations](#API_runtime_RecognizeUtterance_ResponseSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-response-interpretations"></a>
-A list of intents that Amazon Lex determined might satisfy the user's utterance\.  
-Each interpretation includes the intent, a score that indicates how confident Amazon Lex is that the interpretation is the correct one, and an optional sentiment response that indicates the sentiment expressed in the utterance\.  
+A list of intents that Amazon Lex V2 determined might satisfy the user's utterance\.  
+Each interpretation includes the intent, a score that indicates how confident Amazon Lex V2 is that the interpretation is the correct one, and an optional sentiment response that indicates the sentiment expressed in the utterance\.  
+The `interpretations` field is compressed with gzip and then base64 encoded\. Before you can use the contents of the field, you must decode and decompress the contents\. See the example for a simple function to decode and decompress the contents\.  
 Length Constraints: Minimum length of 1\.
 
  ** [messages](#API_runtime_RecognizeUtterance_ResponseSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-response-messages"></a>
 A list of messages that were last sent to the user\. The messages are ordered based on the order that you returned the messages from your Lambda function or the order that the messages are defined in the bot\.  
+The `messages` field is compressed with gzip and then base64 encoded\. Before you can use the contents of the field, you must decode and decompress the contents\. See the example for a simple function to decode and decompress the contents\.  
 Length Constraints: Minimum length of 1\.
 
  ** [requestAttributes](#API_runtime_RecognizeUtterance_ResponseSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-response-requestAttributes"></a>
 The attributes sent in the request\.  
+The `requestAttributes` field is compressed with gzip and then base64 encoded\. Before you can use the contents of the field, you must decode and decompress the contents\.  
 Length Constraints: Minimum length of 1\.
 
  ** [sessionId](#API_runtime_RecognizeUtterance_ResponseSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-response-sessionId"></a>
@@ -135,12 +154,13 @@ Pattern: `[0-9a-zA-Z._:-]+`
  ** [sessionState](#API_runtime_RecognizeUtterance_ResponseSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-response-sessionState"></a>
 Represents the current state of the dialog between the user and the bot\.  
 Use this to determine the progress of the conversation and what the next action might be\.  
+The `sessionState` field is compressed with gzip and then base64 encoded\. Before you can use the contents of the field, you must decode and decompress the contents\. See the example for a simple function to decode and decompress the contents\.  
 Length Constraints: Minimum length of 1\.
 
 The response returns the following as the HTTP body\.
 
  ** [audioStream](#API_runtime_RecognizeUtterance_ResponseSyntax) **   <a name="lexv2-runtime_RecognizeUtterance-response-audioStream"></a>
-The prompt or statement to send to the user\. This is based on the bot configuration and context\. For example, if Amazon Lex did not understand the user intent, it sends the `clarificationPrompt` configured for the bot\. If the intent requires confirmation before taking the fulfillment action, it sends the `confirmationPrompt`\. Another example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message to convey to the user\. Then Amazon Lex sends that message in the response\.
+The prompt or statement to send to the user\. This is based on the bot configuration and context\. For example, if Amazon Lex V2 did not understand the user intent, it sends the `clarificationPrompt` configured for the bot\. If the intent requires confirmation before taking the fulfillment action, it sends the `confirmationPrompt`\. Another example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message to convey to the user\. Then Amazon Lex V2 sends that message in the response\.
 
 ## Errors<a name="API_runtime_RecognizeUtterance_Errors"></a>
 
@@ -178,15 +198,84 @@ HTTP Status Code: 429
   
 HTTP Status Code: 400
 
+## Examples<a name="API_runtime_RecognizeUtterance_Examples"></a>
+
+### Encode and decode a field<a name="API_runtime_RecognizeUtterance_Example_1"></a>
+
+The following example provides two functions, one to compress a string with gzip and then base64 encode it and one to decode and decompress a string\.
+
+#### <a name="w233aac47b7b9c20c27b3b5"></a>
+
+```
+package com.amazonaws.deepsense.util;
+
+import com.amazonaws.deepsense.runtime.conversation.serialize.RuntimeSdkSerializer;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.common.base.Preconditions;
+
+import java.io.IOException;
+import java.util.Base64;
+
+public class CompressionAndEncoding {
+
+    private CompressionAndEncoding() {
+
+    }
+
+    /**
+     * Given a generic object
+     * 1. Serialize the object using jackson
+     * 2. Compress the serialized object
+     * 3. Base64 encode the compressed data
+     */
+    public static String compressAndEncodeBase64(Object object) {
+        if (object == null) {
+            return null;
+        }
+
+        String objectAsString = GsonSerializer.serialize(object);
+        byte[] compressedString = Compressions.compress(objectAsString);
+        return Base64.getEncoder().encodeToString(compressedString);
+    }
+
+    /**
+     * Given a base64 encoded, compressed, serialized object
+     * 1. Base64 decodes the data
+     * 2. Decompresses the base64 decoded data
+     * 3. Converts the serialized object into a proper POJO
+     */
+    public static <T> T decodeBase64AndDecompress(String objectAsString, TypeReference<T> typeRef) {
+        if (objectAsString == null) {
+            return null;
+        }
+
+        Preconditions.checkNotNull(typeRef, "Serialization class can't be null.");
+        byte[] decodedBytes = Base64.getDecoder().decode(objectAsString);
+        String decompressedObjectAsString = Compressions.uncompress(decodedBytes);
+        try {
+            return RuntimeSdkSerializer.instance().readValue(decompressedObjectAsString, typeRef);
+        } catch (IOException e) {
+            throw new RuntimeException(String.format("Unable to deserialize string %s", decompressedObjectAsString), e);
+        }
+    }
+
+}
+```
+
 ## See Also<a name="API_runtime_RecognizeUtterance_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/RecognizeUtterance) 

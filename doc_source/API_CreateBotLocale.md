@@ -45,7 +45,7 @@ Length Constraints: Minimum length of 0\. Maximum length of 200\.
 Required: No
 
  ** [localeId](#API_CreateBotLocale_RequestSyntax) **   <a name="lexv2-CreateBotLocale-request-localeId"></a>
-The identifier of the language and locale that the bot will be used in\. The string must match one of the supported locales\. All of the intents, slot types, and slots used in the bot must have the same locale\. For more information, see [https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html](https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html)\.  
+The identifier of the language and locale that the bot will be used in\. The string must match one of the supported locales\. All of the intents, slot types, and slots used in the bot must have the same locale\. For more information, see [Supported languages](https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)\.  
 Type: String  
 Required: Yes
 
@@ -104,7 +104,7 @@ When the status is `Creating` the bot locale is being configured\. When the stat
 If the status of the bot is `ReadyExpressTesting`, you can test the bot using the exact utterances specified in the bots' intents\. When the bot is ready for full testing or to run, the status is `Built`\.  
 If there was a problem with building the bot, the status is `Failed`\. If the bot was saved but not built, the status is `NotBuilt`\.  
 Type: String  
-Valid Values:` Creating | Building | Built | ReadyExpressTesting | Failed | Deleting | NotBuilt` 
+Valid Values:` Creating | Building | Built | ReadyExpressTesting | Failed | Deleting | NotBuilt | Importing` 
 
  ** [botVersion](#API_CreateBotLocale_ResponseSyntax) **   <a name="lexv2-CreateBotLocale-response-botVersion"></a>
 The specified bot version\.  
@@ -169,12 +169,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateBotLocale_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/models.lex.v2-2020-08-07/CreateBotLocale) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/models.lex.v2-2020-08-07/CreateBotLocale) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/CreateBotLocale) 

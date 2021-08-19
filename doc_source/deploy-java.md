@@ -1,4 +1,4 @@
-# Using a Java application to interact with an Amazon Lex bot<a name="deploy-java"></a>
+# Using a Java application to interact with an Amazon Lex V2 bot<a name="deploy-java"></a>
 
 The AWS SDK for Java provides an interface that you can use from your Java applications to interact with your bots\. Use the SDK for Java to build client applications for users\. 
 
@@ -19,17 +19,17 @@ User : Yes
 Bot  : Thanks.
 ```
 
-For the JSON structures that are sent between the client application and the Amazon Lex bot, see [Exercise 2: Review the conversation flow](exercise-2.md)\.
+For the JSON structures that are sent between the client application and the Amazon Lex V2 bot, see [Exercise 2: Review the conversation flow](exercise-2.md)\.
 
 To run the application, you must provide the following information:
-+ botId – The identifier assigned to the bot when you created it\. You can see the bot ID in the Amazon Lex console on the bot **Settings** page\.
-+ botAliasId – The identifier assigned to the bot alias when you created it\. You can see the bot alias ID in the Amazon Lex console on the **Aliases** page\. If you can't see the alias ID in the list, choose the gear icon on the upper right and turn on **Alias ID**\.
-+ localeId – The identifier of the locale that you used for your bot\. For a list of locales, see [Languages and locales supported by Amazon Lex](how-languages.md)\.
++ botId – The identifier assigned to the bot when you created it\. You can see the bot ID in the Amazon Lex V2 console on the bot **Settings** page\.
++ botAliasId – The identifier assigned to the bot alias when you created it\. You can see the bot alias ID in the Amazon Lex V2 console on the **Aliases** page\. If you can't see the alias ID in the list, choose the gear icon on the upper right and turn on **Alias ID**\.
++ localeId – The identifier of the locale that you used for your bot\. For a list of locales, see [Languages and locales supported by Amazon Lex V2](how-languages.md)\.
 + accessKey and secretKey – The authentication keys for your account\. If you don't have a set of keys, create them using the AWS Identity and Access Management console\.
-+ sessionId – An identifier for the session with the Amazon Lex bot\. In this case, the code uses a random UUID\.
++ sessionId – An identifier for the session with the Amazon Lex V2 bot\. In this case, the code uses a random UUID\.
 + region – If your bot is not in the US East \(N\. Virginia\) Region, make sure that you change the Region\.
 
-The applications uses a function called `getRecognizeTextRequest` to create individual requests to the bot\. The function builds a request with the required parameters to send to Amazon Lex\.
+The applications uses a function called `getRecognizeTextRequest` to create individual requests to the bot\. The function builds a request with the required parameters to send to Amazon Lex V2\.
 
 ```
 package com.lex.recognizetext.sample;

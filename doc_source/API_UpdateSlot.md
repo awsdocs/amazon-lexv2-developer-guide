@@ -10,6 +10,9 @@ Content-type: application/json
 
 {
    "description": "string",
+   "multipleValuesSetting": { 
+      "allowMultipleValues": boolean
+   },
    "obfuscationSetting": { 
       "obfuscationSettingType": "string"
    },
@@ -84,6 +87,7 @@ Content-type: application/json
       ],
       "slotConstraint": "string",
       "waitAndContinueSpecification": { 
+         "active": boolean,
          "continueResponse": { 
             "allowInterrupt": boolean,
             "messageGroups": [ 
@@ -273,7 +277,7 @@ Pattern: `^[0-9a-zA-Z]+$`
 Required: Yes
 
  ** [localeId](#API_UpdateSlot_RequestSyntax) **   <a name="lexv2-UpdateSlot-request-localeId"></a>
-The identifier of the language and locale that contains the slot\. The string must match one of the supported locales\. For more information, see [https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html](https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html)\.  
+The identifier of the language and locale that contains the slot\. The string must match one of the supported locales\. For more information, see [Supported languages](https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)\.  
 Required: Yes
 
  ** [slotId](#API_UpdateSlot_RequestSyntax) **   <a name="lexv2-UpdateSlot-request-slotId"></a>
@@ -290,6 +294,12 @@ The request accepts the following data in JSON format\.
 The new description for the slot\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 200\.  
+Required: No
+
+ ** [multipleValuesSetting](#API_UpdateSlot_RequestSyntax) **   <a name="lexv2-UpdateSlot-request-multipleValuesSetting"></a>
+Determines whether the slot accepts multiple values in one response\. Multiple value slots are only available in the en\-US locale\. If you set this value to `true` in any other locale, Amazon Lex throws a `ValidationException`\.  
+If the `multipleValuesSetting` is not set, the default value is `false`\.  
+Type: [MultipleValuesSetting](API_MultipleValuesSetting.md) object  
 Required: No
 
  ** [obfuscationSetting](#API_UpdateSlot_RequestSyntax) **   <a name="lexv2-UpdateSlot-request-obfuscationSetting"></a>
@@ -330,6 +340,9 @@ Content-type: application/json
    "intentId": "string",
    "lastUpdatedDateTime": number,
    "localeId": "string",
+   "multipleValuesSetting": { 
+      "allowMultipleValues": boolean
+   },
    "obfuscationSetting": { 
       "obfuscationSettingType": "string"
    },
@@ -405,6 +418,7 @@ Content-type: application/json
       ],
       "slotConstraint": "string",
       "waitAndContinueSpecification": { 
+         "active": boolean,
          "continueResponse": { 
             "allowInterrupt": boolean,
             "messageGroups": [ 
@@ -612,6 +626,10 @@ Type: Timestamp
 The locale that contains the slot\.  
 Type: String
 
+ ** [multipleValuesSetting](#API_UpdateSlot_ResponseSyntax) **   <a name="lexv2-UpdateSlot-response-multipleValuesSetting"></a>
+Indicates whether the slot accepts multiple values in one response\.  
+Type: [MultipleValuesSetting](API_MultipleValuesSetting.md) object
+
  ** [obfuscationSetting](#API_UpdateSlot_ResponseSyntax) **   <a name="lexv2-UpdateSlot-response-obfuscationSetting"></a>
 The updated setting that determines whether the slot value is obfuscated in the Amazon CloudWatch logs\.  
 Type: [ObfuscationSetting](API_ObfuscationSetting.md) object
@@ -669,12 +687,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_UpdateSlot_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/models.lex.v2-2020-08-07/UpdateSlot) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/models.lex.v2-2020-08-07/UpdateSlot) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/models.lex.v2-2020-08-07/UpdateSlot) 

@@ -1,10 +1,10 @@
 # Step 6: Test the integration<a name="slack-step-6"></a>
 
-Now use a browser window to test the integration of Slack with your Amazon Lex bot\.
+Now use a browser window to test the integration of Slack with your Amazon Lex V2 bot\.
 
 **To test your Slack application**
 
-1. Open the Slack console at [ https://api\.slack\.com ](https//api.slack.com/apps)\. From the list of apps, choose the app to test\.
+1. Open the Slack console at [http://api\.slack\.com ](http://api.slack.com)\. From the list of apps, choose the app to test\.
 
 1. Choose **Manage Distribution** under **Settings**\. Choose **Add to Slack** to install the application\. Choose **Allow**to authorize the bot to respond to messages\.
 

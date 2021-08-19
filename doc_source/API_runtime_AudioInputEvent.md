@@ -1,8 +1,8 @@
 # AudioInputEvent<a name="API_runtime_AudioInputEvent"></a>
 
-Represents a chunk of audio sent from the client application to Amazon Lex\. The audio is all or part of an utterance from the user\.
+Represents a chunk of audio sent from the client application to Amazon Lex V2\. The audio is all or part of an utterance from the user\.
 
-Amazon Lex accumulates audio chunks until it recognizes a natural pause in speech before processing the input\.
+Amazon Lex V2 accumulates audio chunks until it recognizes a natural pause in speech before processing the input\.
 
 ## Contents<a name="API_runtime_AudioInputEvent_Contents"></a>
 
@@ -12,7 +12,7 @@ Type: Base64\-encoded binary data object
 Required: No
 
  **clientTimestampMillis**   <a name="lexv2-Type-runtime_AudioInputEvent-clientTimestampMillis"></a>
-A timestamp set by the client of the date and time that the event was sent to Amazon Lex\.  
+A timestamp set by the client of the date and time that the event was sent to Amazon Lex V2\.  
 Type: Long  
 Required: No
 
@@ -33,7 +33,7 @@ Required: No
 ## See Also<a name="API_runtime_AudioInputEvent_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/AudioInputEvent) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/AudioInputEvent) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/AudioInputEvent) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/AudioInputEvent) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/AudioInputEvent) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/AudioInputEvent) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/AudioInputEvent) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/AudioInputEvent) 

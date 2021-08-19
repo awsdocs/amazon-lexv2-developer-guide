@@ -6,7 +6,7 @@ In this section, you do the following:
 
 1. Configure the application to add interactive messaging to your bot\.
 
-At the end of this section, you get application credentials \(Client ID, Client Secret, and Verification Token\)\. In the next step, you use this information to integrate the bot in the Amazon Lex console\.
+At the end of this section, you get application credentials \(Client ID, Client Secret, and Verification Token\)\. In the next step, you use this information to integrate the bot in the Amazon Lex V2 console\.
 
 **To create a Slack application**
 
@@ -32,4 +32,4 @@ For now, enter any valid URL to get the verification token that you need in the 
 
 ## Next step<a name="step-3-next"></a>
 
-[Step 4: Integrate the Slack application with the Amazon Lex bot](slack-step-4.md)
+[Step 4: Integrate the Slack application with the Amazon Lex V2 bot](slack-step-4.md)

@@ -1,10 +1,10 @@
 # Viewing text logs in Amazon CloudWatch Logs<a name="conversation-logs-cw"></a>
 
-Amazon Lex stores text logs for your conversations in Amazon CloudWatch Logs\. To view the logs, you can use the CloudWatch Logs console or API\. For more information, see [ Search Log Data Using Filter Patterns ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SearchDataFilterPattern.html) and [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) in the *Amazon CloudWatch Logs User Guide*\.
+Amazon Lex V2 stores text logs for your conversations in Amazon CloudWatch Logs\. To view the logs, you can use the CloudWatch Logs console or API\. For more information, see [ Search Log Data Using Filter Patterns ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SearchDataFilterPattern.html) and [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) in the *Amazon CloudWatch Logs User Guide*\.
 
-**To view logs using the Amazon Lex console**
+**To view logs using the Amazon Lex V2 console**
 
-1. Open the Amazon Lex console [https://console\.aws\.amazon\.com/lexv2](https://console.aws.amazon.com/lexv2)\.
+1. Open the Amazon Lex V2 console [https://console\.aws\.amazon\.com/lexv2](https://console.aws.amazon.com/lexv2)\.
 
 1. From the list, choose a bot\.
 
@@ -12,7 +12,7 @@ Amazon Lex stores text logs for your conversations in Amazon CloudWatch Logs\. T
 
 1. View metrics for your bot on the **CloudWatch metrics** page\.
 
-You can also use the CloudWatch console or API to view your log entries\. To find the log entries, navigate to the log group that you configured for the alias\. You find the log stream prefix for your logs in the Amazon Lex console or by using the [DescribeBotAlias](API_DescribeBotAlias.md) operation\. 
+You can also use the CloudWatch console or API to view your log entries\. To find the log entries, navigate to the log group that you configured for the alias\. You find the log stream prefix for your logs in the Amazon Lex V2 console or by using the [DescribeBotAlias](API_DescribeBotAlias.md) operation\. 
 
 Log entries for a user utterance is in multiple log streams\. An utterance in the conversation has an entry in one of the log streams with the specified prefix\. An entry in the log stream contains the following information\.
 
@@ -52,14 +52,38 @@ Log entries for a user utterance is in multiple log streams\. An utterance in th
         "intent": {
             "name": "string",
             "slots": {
-                "string": {
-                    "value": {
-                        "originalValue": "string",
-                        "interpretedValue": "string",
-                        "resolvedValues": [
-                            "string"
-                        ]
+                "string" : { 
+                    "value": { 
+                       "interpretedValue": "string",
+                       "originalValue": "string",
+                       "resolvedValues": [ "string" ]
                     }
+                 },  
+                "string": {
+                    "shape": "List",
+                    "value": {
+                        "originalValue":"string",
+                        "interpretedValue":"string",
+                        "resolvedValues":[ "string" ]
+                    },
+                    "values": [
+                        {
+                            "shape": "Scalar",
+                            "value": {
+                                "originalValue": "string",
+                                "interpretedValue": "string",
+                                "resolvedValues": [ "string" ]
+                            }
+                        },
+                        {
+                            "shape": "Scalar",
+                            "value": {
+                                "originalValue": "string",
+                                "interpretedValue": "string",
+                                "resolvedValues": [ "string" ]
+                            }
+                        }
+                    ]
                 }
             },
             "kendraResponse": {
@@ -84,10 +108,35 @@ Log entries for a user utterance is in multiple log streams\. An utterance in th
                         "value": {
                             "originalValue": "string",
                             "interpretedValue": "string",
-                            "resolvedValues": [
-                                "string"
-                            ]
+                            "resolvedValues": [ "string" ]
                         }
+                    },
+                    "string": {
+                        "shape": "List",
+                        "value": {
+                            "interpretedValue": "string",
+                            "originalValue": "string",
+                            "resolvedValues": [ "string" ]
+                        },
+                        "values": [
+                            {
+                                "shape": "Scalar",
+                                "value": {
+                                    "interpretedValue": "string",
+                                    "originalValue": "string",
+                                    "resolvedValues": [ "string" ]
+                                }
+                            },
+                            {
+                                "shape": "Scalar",
+                                "value": {
+                                    "interpretedValue": "string",
+                                    "originalValue":"string",
+                                    "resolvedValues": [ "string" ]
+                                }
+
+                            }
+                        ]
                     }
                 },
                 "kendraResponse": {

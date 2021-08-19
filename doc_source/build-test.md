@@ -1,6 +1,6 @@
 # Testing a bot using the console<a name="build-test"></a>
 
-The Amazon Lex console contains a test window that you can use to test the interaction with your bot\. You use the test window to have a test conversation with your bot and to see the responses that your application receives from the bot\.
+The Amazon Lex V2 console contains a test window that you can use to test the interaction with your bot\. You use the test window to have a test conversation with your bot and to see the responses that your application receives from the bot\.
 
 There are two types of testing that you can perform with your bot\. The first, express testing, enables you to test your bot with the exact phrases that you used for creating the bot\. For example, if you added the utterance "I want to pick up flowers" to your intent, you can test the bot using that exact phrase\.
 
@@ -10,7 +10,7 @@ You test a bot using a specific alias and language\. If you are testing the deve
 
 **To open the test window**
 
-1. Sign in to the AWS Management Console and open the Amazon Lex console at [ https://console\.aws\.amazon\.com/lexv2/ ](https://console.aws.amazon.com/lexv2/)
+1. Sign in to the AWS Management Console and open the Amazon Lex V2 console at [ https://console\.aws\.amazon\.com/lexv2/ ](https://console.aws.amazon.com/lexv2/)
 
 1. Choose the bot to test from the list of bots\.
 
@@ -28,6 +28,6 @@ In addition to the conversation, you can also choose **Inspect** in the test win
 
 ![\[The test window showing the summary view of a conversation with a bot.\]](http://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-2.png)
 
-You can also use the test inspection window to see the JSON structures that are sent between the bot and the test window\. You can see both the request from the test window and the response from Amazon Lex\.
+You can also use the test inspection window to see the JSON structures that are sent between the bot and the test window\. You can see both the request from the test window and the response from Amazon Lex V2\.
 
 ![\[The test window showing the JSON structures used in a conversation with a bot.\]](http://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-3.png)

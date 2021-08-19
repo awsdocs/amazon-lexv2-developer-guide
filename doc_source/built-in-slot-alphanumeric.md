@@ -8,15 +8,15 @@ You can use the `AMAZON.AlphaNumeric` slot type for strings that contain:
 + A combination of alphanumeric characters, such as **ABC123**
 
 You can add a regular expression to the `AMAZON.AlphaNumeric` slot type to validate values entered for the slot\. For example, you can use a regular expression to validate:
-+ United Kingdom or Canadian postal codes
++ Canadian postal codes
 + Driver's license numbers
 + Vehicle identification numbers
 
-Use a standard regular expression\. Amazon Lex supports the following characters in the regular expression:
+Use a standard regular expression\. Amazon Lex V2 supports the following characters in the regular expression:
 + A\-Z, a\-z
 + 0\-9
 
-Amazon Lex also supports Unicode characters in regular expressions\. The form is `\uUnicode`\. Use four digits to represent Unicode characters\. For example, `[\u0041-\u005A]` is equivalent to \[A\-Z\]\.
+Amazon Lex V2 also supports Unicode characters in regular expressions\. The form is `\uUnicode`\. Use four digits to represent Unicode characters\. For example, `[\u0041-\u005A]` is equivalent to \[A\-Z\]\.
 
 The following regular expression operators are not supported:
 + Infinite repeaters: \*, \+, or \{x,\} with no upper bound\.
@@ -29,6 +29,6 @@ The following are some example regular expressions\.
 + US Postal Service Priority Mail International format, such as **CP123456789US**: `CP[0-9]{9}US`
 + Bank routing numbers, such as **123456789**: `[0-9]{9}`
 
-To set the regular expression for a slot type, use the console or the [CreateSlotType](API_CreateSlotType.md) operation\. The regular expression is validated when you save the slot type\. If the expression isn't valid, Amazon Lex returns an error message\.
+To set the regular expression for a slot type, use the console or the [CreateSlotType](API_CreateSlotType.md) operation\. The regular expression is validated when you save the slot type\. If the expression isn't valid, Amazon Lex V2 returns an error message\.
 
-When you use a regular expression in a slot type, Amazon Lex checks input to slots of that type against the regular expression\. If the input matches the expression, the value is accepted for the slot\. If the input does not match, Amazon Lex prompts the user to repeat the input\. 
+When you use a regular expression in a slot type, Amazon Lex V2 checks input to slots of that type against the regular expression\. If the input matches the expression, the value is accepted for the slot\. If the input does not match, Amazon Lex V2 prompts the user to repeat the input\. 

@@ -8,7 +8,7 @@ In the current implementation, you can't do the following:
 
 **To add a built\-in intent to a bot**
 
-1. Sign in to the AWS Management Console and open the Amazon Lex console at [ https://console\.aws\.amazon\.com/lexv2/ ](https://console.aws.amazon.com/https://console.aws.amazon.com/lexv2/)
+1. Sign in to the AWS Management Console and open the Amazon Lex V2 console at [ https://console\.aws\.amazon\.com/lexv2/ ](https://console.aws.amazon.com/https://console.aws.amazon.com/lexv2/)
 
 1. Choose the bot to add the built\-in intent to\.
 

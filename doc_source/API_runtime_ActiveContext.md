@@ -1,8 +1,8 @@
 # ActiveContext<a name="API_runtime_ActiveContext"></a>
 
-Contains information about the contexts that a user is using in a session\. You can configure Amazon Lex to set a context when an intent is fulfilled, or you can set a context using the [PutSession](API_runtime_PutSession.md), [RecognizeText](API_runtime_RecognizeText.md), or [RecognizeUtterance](API_runtime_RecognizeUtterance.md) operations\.
+Contains information about the contexts that a user is using in a session\. You can configure Amazon Lex V2 to set a context when an intent is fulfilled, or you can set a context using the [PutSession](API_runtime_PutSession.md), [RecognizeText](API_runtime_RecognizeText.md), or [RecognizeUtterance](API_runtime_RecognizeUtterance.md) operations\.
 
-Use a context to indicate to Amazon Lex intents that should be used as follow\-up intents\. For example, if the active context is `order-fulfilled`, only intents that have `order-fulfilled` configured as a trigger are considered for follow up\.
+Use a context to indicate to Amazon Lex V2 intents that should be used as follow\-up intents\. For example, if the active context is `order-fulfilled`, only intents that have `order-fulfilled` configured as a trigger are considered for follow up\.
 
 ## Contents<a name="API_runtime_ActiveContext_Contents"></a>
 
@@ -13,7 +13,7 @@ Type: String to string map
 Map Entries: Minimum number of 0 items\. Maximum number of 10 items\.  
 Key Length Constraints: Minimum length of 1\. Maximum length of 100\.  
 Value Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
-Required: No
+Required: Yes
 
  **name**   <a name="lexv2-Type-runtime_ActiveContext-name"></a>
 The name of the context\.  
@@ -30,7 +30,7 @@ Required: Yes
 ## See Also<a name="API_runtime_ActiveContext_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/ActiveContext) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/ActiveContext) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/ActiveContext) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/ActiveContext) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/ActiveContext) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/runtime.lex.v2-2020-08-07/ActiveContext) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/ActiveContext) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/ActiveContext) 

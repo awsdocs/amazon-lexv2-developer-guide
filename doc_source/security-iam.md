@@ -1,28 +1,30 @@
-# Identity and access management for Amazon Lex<a name="security-iam"></a>
+# Identity and access management for Amazon Lex V2<a name="security-iam"></a>
 
 
 
 
 
-AWS Identity and Access Management \(IAM\) is an AWS service that helps an administrator securely control access to AWS resources\. IAM administrators control who can be *authenticated* \(signed in\) and *authorized* \(have permissions\) to use Amazon Lex resources\. IAM is an AWS service that you can use with no additional charge\.
+AWS Identity and Access Management \(IAM\) is an AWS service that helps an administrator securely control access to AWS resources\. IAM administrators control who can be *authenticated* \(signed in\) and *authorized* \(have permissions\) to use Amazon Lex V2 resources\. IAM is an AWS service that you can use with no additional charge\.
 
 **Topics**
 + [Audience](#security_iam_audience)
 + [Authenticating with identities](#security_iam_authentication)
 + [Managing access using policies](#security_iam_access-manage)
-+ [How Amazon Lex works with IAM](security_iam_service-with-iam.md)
-+ [Identity\-based policy examples for Amazon Lex](security_iam_id-based-policy-examples.md)
-+ [Troubleshooting Amazon Lex identity and access](security_iam_troubleshoot.md)
++ [How Amazon Lex V2 works with IAM](security_iam_service-with-iam.md)
++ [Identity\-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md)
++ [Resource\-based policy examples for Amazon Lex V2](security_iam_resource-based-policy-examples.md)
++ [AWS managed policies for Amazon Lex V2](security-iam-awsmanpol.md)
++ [Troubleshooting Amazon Lex V2 identity and access](security_iam_troubleshoot.md)
 
 ## Audience<a name="security_iam_audience"></a>
 
-How you use AWS Identity and Access Management \(IAM\) differs, depending on the work that you do in Amazon Lex\.
+How you use AWS Identity and Access Management \(IAM\) differs, depending on the work that you do in Amazon Lex V2\.
 
-**Service user** – If you use the Amazon Lex service to do your job, then your administrator provides you with the credentials and permissions that you need\. As you use more Amazon Lex features to do your work, you might need additional permissions\. Understanding how access is managed can help you request the right permissions from your administrator\. If you cannot access a feature in Amazon Lex, see [Troubleshooting Amazon Lex identity and access](security_iam_troubleshoot.md)\.
+**Service user** – If you use the Amazon Lex V2 service to do your job, then your administrator provides you with the credentials and permissions that you need\. As you use more Amazon Lex V2 features to do your work, you might need additional permissions\. Understanding how access is managed can help you request the right permissions from your administrator\. If you cannot access a feature in Amazon Lex V2, see [Troubleshooting Amazon Lex V2 identity and access](security_iam_troubleshoot.md)\.
 
-**Service administrator** – If you're in charge of Amazon Lex resources at your company, you probably have full access to Amazon Lex\. It's your job to determine which Amazon Lex features and resources your employees should access\. You must then submit requests to your IAM administrator to change the permissions of your service users\. Review the information on this page to understand the basic concepts of IAM\. To learn more about how your company can use IAM with Amazon Lex, see [How Amazon Lex works with IAM](security_iam_service-with-iam.md)\.
+**Service administrator** – If you're in charge of Amazon Lex V2 resources at your company, you probably have full access to Amazon Lex V2\. It's your job to determine which Amazon Lex V2 features and resources your employees should access\. You must then submit requests to your IAM administrator to change the permissions of your service users\. Review the information on this page to understand the basic concepts of IAM\. To learn more about how your company can use IAM with Amazon Lex V2, see [How Amazon Lex V2 works with IAM](security_iam_service-with-iam.md)\.
 
-**IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can write policies to manage access to Amazon Lex\. To view example Amazon Lex identity\-based policies that you can use in IAM, see [Identity\-based policy examples for Amazon Lex](security_iam_id-based-policy-examples.md)\.
+**IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can write policies to manage access to Amazon Lex V2\. To view example Amazon Lex V2 identity\-based policies that you can use in IAM, see [Identity\-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md)\.
 
 ## Authenticating with identities<a name="security_iam_authentication"></a>
 
@@ -55,7 +57,7 @@ IAM roles with temporary credentials are useful in the following situations:
 + **Federated user access** –  Instead of creating an IAM user, you can use existing identities from AWS Directory Service, your enterprise user directory, or a web identity provider\. These are known as *federated users*\. AWS assigns a role to a federated user when access is requested through an [identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)\. For more information about federated users, see [Federated users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html#intro-access-roles) in the *IAM User Guide*\. 
 + **Cross\-account access** – You can use an IAM role to allow someone \(a trusted principal\) in a different account to access resources in your account\. Roles are the primary way to grant cross\-account access\. However, with some AWS services, you can attach a policy directly to a resource \(instead of using a role as a proxy\)\. To learn the difference between roles and resource\-based policies for cross\-account access, see [How IAM roles differ from resource\-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html) in the *IAM User Guide*\.
 + **Cross\-service access** –  Some AWS services use features in other AWS services\. For example, when you make a call in a service, it's common for that service to run applications in Amazon EC2 or store objects in Amazon S3\. A service might do this using the calling principal's permissions, using a service role, or using a service\-linked role\. 
-  + **Principal permissions** –  When you use an IAM user or role to perform actions in AWS, you are considered a principal\. Policies grant permissions to a principal\. When you use some services, you might perform an action that then triggers another action in a different service\. In this case, you must have permissions to perform both actions\. To see whether an action requires additional dependent actions in a policy, see [Actions, resources, and condition keys for Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html) in the *Service Authorization Reference*\. 
+  + **Principal permissions** –  When you use an IAM user or role to perform actions in AWS, you are considered a principal\. Policies grant permissions to a principal\. When you use some services, you might perform an action that then triggers another action in a different service\. In this case, you must have permissions to perform both actions\. To see whether an action requires additional dependent actions in a policy, see [Actions, resources, and condition keys for Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html) in the *Service Authorization Reference*\. 
   + **Service role** –  A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf\. Service roles provide access only within your account and cannot be used to grant access to services in other accounts\. An IAM administrator can create, modify, and delete a service role from within IAM\. For more information, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. 
   + **Service\-linked role** –  A service\-linked role is a type of service role that is linked to an AWS service\. The service can assume the role to perform an action on your behalf\. Service\-linked roles appear in your IAM account and are owned by the service\. An IAM administrator can view, but not edit the permissions for service\-linked roles\. 
 + **Applications running on Amazon EC2** –  You can use an IAM role to manage temporary credentials for applications that are running on an EC2 instance and making AWS CLI or AWS API requests\. This is preferable to storing access keys within the EC2 instance\. To assign an AWS role to an EC2 instance and make it available to all of its applications, you create an instance profile that is attached to the instance\. An instance profile contains the role and enables programs that are running on the EC2 instance to get temporary credentials\. For more information, see [Using an IAM role to grant permissions to applications running on Amazon EC2 instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) in the *IAM User Guide*\. 
