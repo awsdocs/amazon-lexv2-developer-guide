@@ -15,7 +15,7 @@ You indicate that an intent should use a Lambda function using the console or th
 
 ![\[The code hooks section of the Amazon Lex V2 intent editor.\]](http://docs.aws.amazon.com/lexv2/latest/dg/images/lambda-code-hooks.png)
 
-You define the Lambda function to use in each bot alias\. The same Lambda function is used for all intents in a language supported by the bot\. 
+You define the Lambda function to use in each bot alias\. The same Lambda function is used for all intents in a language supported by the bot\.
 
 **To choose a Lambda function to use with a bot alias**
 
@@ -105,7 +105,7 @@ The input format may change without a corresponding change to the `messageVersio
                 },
                 "state": "Failed | Fulfilled | InProgress | ReadyForFulfillment",
                 "kendraResponse": {
-                    // Only present when intent is KendraSearchIntent. For details, see 
+                    // Only present when intent is KendraSearchIntent. For details, see
                     // https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html#API_Query_ResponseSyntax
                 }
             },
@@ -149,6 +149,7 @@ The input format may change without a corresponding change to the `messageVersio
         "intent": {
             "confirmationState": "Confirmed | Denied | None",
             "name": "string",
+            "state": "Failed | Fulfilled | InProgress | ReadyForFulfillment",
             "slots": {
                 "string": {
                     "value": {
@@ -192,7 +193,6 @@ The input format may change without a corresponding change to the `messageVersio
                     ]
                 }
             },
-            "state": "Failed | Fulfilled | InProgress | ReadyForFulfillment",
             "kendraResponse": {
                 // Only present when intent is KendraSearchIntent. For details, see
                 // https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html#API_Query_ResponseSyntax                     }
@@ -239,6 +239,7 @@ Amazon Lex V2 expects a response from your Lambda function in the following form
         "intent": {
             "confirmationState": "Confirmed | Denied | None",
             "name": "string",
+            "state": "Failed | Fulfilled | InProgress | ReadyForFulfillment",
             "slots": {
                 "string": {
                     "value": {
@@ -282,8 +283,7 @@ Amazon Lex V2 expects a response from your Lambda function in the following form
                     ]
                 }
             }
-        },
-        "state": "Failed | Fulfilled | InProgress | ReadyForFulfillment"
+        }
     },
     "messages": [
         {
@@ -312,7 +312,6 @@ Note the following additional information about the response fields:
 + **sessionState** – Required\. The current state of the conversation with the user\. The actual contents of the structure depends on the type of dialog action\.
   + **dialogAction** – Determines the type of action that Amazon Lex V2 should take in response to the Lambda function\. The `type` field is always required, the `slotToElicit` field is only required when `dialogAction.type` is `ElicitSlot`\.
   + **intent** – The name of the intent that Amazon Lex V2 should use\. Not required when `dialogAction.type` is `Delegate` or `ElicitIntent`\.
-  + **state** – Required\. The state can only be `ReadyForFulfillment` if `delegateAction.type` is `Delegate`\.
 + **messages** – Required if `dialogAction.type` is `ElicitIntent`\. One or more messages that Amazon Lex V2 shows to the customer to perform the next turn of the conversation\. If you don't supply messages, Amazon Lex V2 uses the appropriate message defined when the bot was created\. For more information, see the [Message](API_runtime_Message.md) data type\.
   + **contentType** – The type of message to use\.
   + **content** – If the message type is `PlainText`, `CustomPayload`, or `SSML`, the `content` field contains the message to send to the user\.
