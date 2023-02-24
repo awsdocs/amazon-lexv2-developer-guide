@@ -48,15 +48,13 @@ After you create your bot, you must add one or more languages that the bot suppo
 
 1. Leave the **Voice interaction** and **Intent classification confidence score threshold** fields with their defaults\.
 
-1. Choose **Add language** to add the language to the bot\.
+1. choose **Done** to add the language and continue\.
 
-1. After the language is added, choose **Done** to continue\.
-
-After you choose **Done**, the console opens the intent editor\. You can use the intent editor to examine the intents used by the bot\. When you are done examining the bot, you can test to bot\.
+After you choose **Done**, the console opens the intent editor\. You can use the intent editor to examine the intents used by the bot\. When you are done examining the bot, you can test the bot\.
 
 **To test the OrderFlowers bot**
 
-1. From the bottom menu, choose **Build**\. Wait for the bot to build\.
+1. From the top menu, choose **Build**\. Wait for the bot to build\.
 
 1. When the build is complete, choose **Test** to open the test window\.
 
