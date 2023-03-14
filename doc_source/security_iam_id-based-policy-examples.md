@@ -97,7 +97,9 @@ This example shows an example policy that allows IAM users to create and update 
         "iam:PassRole"
       ],
       "Effect": "Allow",
-      "Resource": ["arn:aws:lex:Region:123412341234:bot/*]
+        "Resource": [
+        "arn:aws:lex:us-east-2:055970264539:bot/*"
+        ]
     }
   ]
 }
