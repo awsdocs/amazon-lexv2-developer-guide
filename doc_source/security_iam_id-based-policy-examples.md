@@ -93,7 +93,7 @@ This example shows an example policy that allows IAM users to create and update 
     {
       "Action": [
         "lex:CreateBot",
-        "lex:UpdateBot".
+        "lex:UpdateBot",
         "iam:PassRole"
       ],
       "Effect": "Allow",
