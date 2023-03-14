@@ -98,7 +98,7 @@ This example shows an example policy that allows IAM users to create and update 
       ],
       "Effect": "Allow",
         "Resource": [
-        "arn:aws:lex:us-east-2:055970264539:bot/*"
+        "arn:aws:lex:us-east-2:123412341234:bot/*"
         ]
     }
   ]
